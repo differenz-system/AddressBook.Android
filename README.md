@@ -1,7 +1,7 @@
 # AddressBook.Android
 
 ## Overview
-This application is for the demo purpose only, having few simple screens, By referring to the code you get an idea about our design & coding practices. Currently, the application is not fully optimized to support tablet devices.
+This application is for the demo purpose only, having few simple screens, By referring to the code you get an idea about our design & coding practices. Currently, The Application is only optimized for a mobile phones.
 
 The app does the following:
 1. **Login:** User can login via facebook or email/password. 

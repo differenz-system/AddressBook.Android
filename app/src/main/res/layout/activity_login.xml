@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="addressbook.app.com.addressbook.loginregistration.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_tool_bar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dim_45"
+                android:paddingStart="@dimen/dim_45">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_email"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_12" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_12"
+                    android:background="@drawable/rounder_corner"
+                    android:ellipsize="end"
+                    android:hint="@string/hint_email"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/dim_12"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/Gray70"
+                    android:textSize="@dimen/text_size_12" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_12"
+                    android:text="@string/lbl_password"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_12" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_12"
+                    android:background="@drawable/rounder_corner"
+                    android:ellipsize="end"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="@dimen/dim_12"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/Gray70"
+                    android:textSize="@dimen/text_size_12" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_45"
+                    android:layout_marginTop="@dimen/dim_45"
+                    android:background="@drawable/rounded_corner_button"
+                    android:gravity="center"
+                    android:text="@string/action_login"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_14" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_45"
+                    android:gravity="center"
+                    android:text="@string/lbl_or"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_12" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login_fb"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_45"
+                    android:layout_marginTop="@dimen/dim_45"
+                    android:background="@drawable/rounded_corner_button"
+                    android:gravity="center"
+                    android:text="@string/action_login_fb"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_14" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pg"
+        android:layout_width="@dimen/dim_65"
+        android:layout_height="@dimen/dim_65"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

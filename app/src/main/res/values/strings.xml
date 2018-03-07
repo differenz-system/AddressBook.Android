@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">AddressBook</string>
+    <string name="splash_title">Address Book</string>
+    <string name="title_login">Login</string>
+    <string name="hint_username">Email goes here</string>
+    <string name="lbl_password">Password</string>
+    <string name="action_login">Log In</string>
+    <string name="lbl_or">Or</string>
+    <string name="action_login_fb">Login with Facebook</string>
+    <string name="hint_password">Password goes here</string>
+    <string name="lbl_no_list">No data</string>
+    <string name="lbl_address_book">Address Book</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_add">Add</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_contact_no">Contact Number</string>
+    <string name="hint_email">Email address goes here</string>
+    <string name="hint_contact_no">Contact number goes here</string>
+    <string name="action_save">Save</string>
+    <string name="action_update">Update</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="lbl_active">Active</string>
+    <string name="lbl_detail">Detail</string>
+
+    <!--Error message-->
+    <string name="msg_server_error">The server might be down, please try again later.</string>
+    <string name="error_msg_connection_timeout">The request timed out please try again.</string>
+    <string name="msg_NO_INTERNET_TITLE">Not connected</string>
+    <string name="msg_NO_INTERNET_MSG">Oops… It seems your connection couldn\'t reach us, please verify your settings.</string>
+    <string name="msg_goto_settings">CONNECTION SETTINGS</string>
+    <string name="toast_err_password">Please enter password</string>
+    <string name="toast_err_name">Please enter name</string>
+    <string name="toast_err_email">Please enter email</string>
+    <string name="toast_err_contact_no">Please enter contact number</string>
+    <string name="toast_err_enter_valid_email">Please enter valid email</string>
+    <string name="toast_err_enter_valid_contact_number">Please enter valid contact number</string>
+    <string name="delete_confirmation_msg">Are you sure you want to delete?</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+</resources>

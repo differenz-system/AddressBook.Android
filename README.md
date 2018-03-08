@@ -9,7 +9,7 @@ The app does the following:
 3. **Create new contact:** User can add a new contact to his address book by filling details here.
 
 ## Screenshots
-<img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/detail.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/list.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/login.png" width="280">
+<img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/login.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/list.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/detail.png" width="280">
 
 ## Getting Started
 The application in this repository should be automatically importable, compilable, and runnable. You can download code & step up using respected standard development tools available. Run & explore more. 

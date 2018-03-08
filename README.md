@@ -9,7 +9,6 @@ The app does the following:
 3. **Create new contact:** User can add a new contact to his address book by filling details here.
 
 ## Screenshots
-### Android
 <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/detail.png" width="200"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/list.png" width="200"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/login.png" width="200">
 
 ## Getting Started

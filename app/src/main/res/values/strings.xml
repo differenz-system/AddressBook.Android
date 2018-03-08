@@ -2,7 +2,7 @@
     <string name="app_name">AddressBook</string>
     <string name="splash_title">Address Book</string>
     <string name="title_login">Login</string>
-    <string name="hint_username">Email goes here</string>
+    <string name="hint_username">User name goes here</string>
     <string name="lbl_password">Password</string>
     <string name="action_login">Log In</string>
     <string name="lbl_or">Or</string>

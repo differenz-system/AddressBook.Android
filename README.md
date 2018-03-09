@@ -1,7 +1,7 @@
 # AddressBook.Android
 
 ## Overview
-This application is for the demo purpose only, having few simple screens, By referring to the code you get an idea about our design & coding practices. Currently, The Application is only optimized for a mobile phones.
+This repository demonstrates a contact list application that shows design & coding practices followed by **Differenz System**. The Application is currently optimized for mobile phones only.
 
 The app does the following:
 1. **Login:** User can login via facebook or email/password. 
@@ -33,4 +33,6 @@ The app does the following:
 <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/login.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/list.png" width="280"> <img src="https://github.com/differenz-system/AddressBook.Android/blob/master/ScreenShots/detail.png" width="280">
 
 ## Support
-If you've found an error in this sample, please [report an issue](https://github.com/differenz-system/AddressBook.Android/issues/new).
+If you've found an error in this sample, please [report an issue](https://github.com/differenz-system/AddressBook.Android/issues/new). You can also send your feedback and suggestions at info@differenzsystem.com
+
+Happy coding!

@@ -1,7 +1,7 @@
 # AddressBook.Android
 
 ## Overview
-This repository contains Contact List application for Android that shows design & coding practices followed by **[Differenz System](http://www.differenzsystem.com/)**.
+This repository contains **Address Book** application for Android that shows design & coding practices followed by **[Differenz System](http://www.differenzsystem.com/)**.
 
 The app does the following:
 1. **Login:** User can login via facebook or email/password. 

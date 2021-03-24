@@ -1,6 +1,6 @@
 package addressbook.app.com.addressbook.utility;
 
-import android.support.v7.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Patterns;
 

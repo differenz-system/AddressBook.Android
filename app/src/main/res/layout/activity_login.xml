@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGrey"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context="addressbook.app.com.addressbook.loginregistration.LoginActivity">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,17 +26,17 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingEnd="@dimen/dim_45"
-                android:paddingStart="@dimen/dim_45">
+                android:paddingStart="@dimen/dim_45"
+                android:paddingEnd="@dimen/dim_45">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/lbl_email"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_12" />
 
-                <android.support.v7.widget.AppCompatEditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,7 +51,7 @@
                     android:textColorHint="@color/Gray70"
                     android:textSize="@dimen/text_size_12" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dim_12"
@@ -62,7 +59,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_12" />
 
-                <android.support.v7.widget.AppCompatEditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,7 +74,7 @@
                     android:textColorHint="@color/Gray70"
                     android:textSize="@dimen/text_size_12" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dim_45"
@@ -89,7 +86,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/text_size_14" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dim_45"
@@ -98,7 +95,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_12" />
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login_fb"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dim_45"

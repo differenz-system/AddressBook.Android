@@ -4,27 +4,24 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
-import com.facebook.AccessToken;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
@@ -34,13 +31,11 @@ import addressbook.app.com.addressbook.apis.HttpRequestHandler;
 import addressbook.app.com.addressbook.apis.PostRequest;
 import addressbook.app.com.addressbook.apis.PostRequest.OnPostServiceCallListener;
 import addressbook.app.com.addressbook.main.AddressBookListingActivity;
-import addressbook.app.com.addressbook.main.EditRemoveAddressBookActivity;
 import addressbook.app.com.addressbook.model.UserLoginDetail;
-
-import addressbook.app.com.addressbook.utility.Constant;
-import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
 import addressbook.app.com.addressbook.utility.ConnectionDetector;
+import addressbook.app.com.addressbook.utility.Constant;
+import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.UtilsValidation;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,32 +45,24 @@ import cc.cloudist.acplibrary.ACProgressFlower;
 
 public class LoginActivity extends BaseAppCompatActivity {
 
+    private final ACProgressFlower dialog = null;
     Globals globals;
     @BindView(R.id.toolbar_title)
     AppCompatTextView toolbar_title;
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
     @BindView(R.id.btn_login)
     AppCompatButton btn_login;
-
     @BindView(R.id.btn_login_fb)
     AppCompatButton btn_login_fb;
-
     @BindView(R.id.et_email)
     AppCompatEditText et_email;
-
     @BindView(R.id.et_password)
     AppCompatEditText et_password;
-
     @BindView(R.id.pg)
     ProgressBar pg;
-
-
     //Facebook
     private CallbackManager callbackmanager;
-    private ACProgressFlower dialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

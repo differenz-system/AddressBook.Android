@@ -99,18 +99,7 @@ public class HttpRequestHandler {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        /*JSONObject loginParams = new JSONObject();
-        try {
-            loginParams.put(Constant.AB_UserName, str_user_name);
-            loginParams.put(Constant.AB_Password, str_password);
-            loginParams.put(Constant.AB_DeviceOSType, Constant.CONSTANT_DEVICE_TYPE);
-            loginParams.put(Constant.AB_DeviceUDID, Constant.CONSTANT_DEVICE_UDID);
-            loginParams.put(Constant.AB_DeviceToken, Constant.CONSTANT_DEVICE_TOKEN);
-            loginParams.put(Constant.AB_ApplicationID, Constant.CONSTANT_APPLICATION_ID);
-            params.put(Constant.AB_LoginData, loginParams);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
+
         return params;
     }
 

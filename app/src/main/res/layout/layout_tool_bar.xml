@@ -11,8 +11,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingEnd="@dimen/dim_10"
-        android:paddingStart="@dimen/dim_10">
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingStart="@dimen/_8sdp">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/toolbar_title"
@@ -21,7 +21,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_size_16"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -33,7 +33,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_size_16"
+            android:textSize="@dimen/_14ssp"
             android:visibility="gone" />
 
 
@@ -46,7 +46,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_size_16"
+            android:textSize="@dimen/_14ssp"
             android:visibility="gone" />
 
     </RelativeLayout>

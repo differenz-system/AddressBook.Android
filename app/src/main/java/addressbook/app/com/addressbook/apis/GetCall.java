@@ -24,9 +24,9 @@ public class GetCall {
     ACProgressFlower dialog;
 
     public interface OnGetServiceCallListener {
-        public void onSucceedToGetCall(JSONObject response);
+        void onSucceedToGetCall(JSONObject response);
 
-        public void onFailedToGetCall();
+        void onFailedToGetCall();
     }
 
     public GetCall(Context context, String url, JSONObject postData, OnGetServiceCallListener listener, boolean isLoaderRequired) {

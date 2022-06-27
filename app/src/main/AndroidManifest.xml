@@ -16,26 +16,29 @@
         <activity
             android:name=".loginregistration.SplashActivity"
             android:launchMode="singleTop"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".loginregistration.LoginActivity"
             android:screenOrientation="portrait"
+            android:exported="false"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
 
         </activity>
         <activity
             android:name=".main.AddressBookListingActivity"
             android:screenOrientation="portrait"
+            android:exported="false"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".main.EditRemoveAddressBookActivity"
             android:screenOrientation="portrait"
+            android:exported="false"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <meta-data

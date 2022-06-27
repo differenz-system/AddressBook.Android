@@ -42,10 +42,10 @@ public class GetDownloadableUrl extends AsyncTask<String, String, String> {
         String mURL = null;
         try {
             URL url1 = new URL(url);
-            HttpURLConnection ucon = (HttpURLConnection) url1.openConnection();
-            ucon.setInstanceFollowRedirects(true);
+            HttpURLConnection Icon = (HttpURLConnection) url1.openConnection();
+            Icon.setInstanceFollowRedirects(true);
             HttpURLConnection.setFollowRedirects(true);
-            URL secondURL = new URL(ucon.getHeaderField("Location"));
+            URL secondURL = new URL(Icon.getHeaderField("Location"));
             mURL = secondURL.toString();
         } catch (Exception e) {
             Log.e("Error: ", e.getMessage());

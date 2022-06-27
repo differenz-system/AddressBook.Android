@@ -120,9 +120,7 @@ public class LoginActivity extends BaseAppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
-
             callbackmanager.onActivityResult(requestCode, resultCode, data);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -145,11 +143,9 @@ public class LoginActivity extends BaseAppCompatActivity {
 
     private void doRequestForLoginUser() {
         String url = getString(R.string.server_url) + getString(R.string.login_url);
-        JSONObject postData = HttpRequestHandler.getInstance()
-                .getLoginUserJson(Globals.trimString(et_email), Globals.trimString(et_password));
+        JSONObject postData = HttpRequestHandler.getInstance().getLoginUserJson(Globals.trimString(et_email), Globals.trimString(et_password));
 
         if (postData != null) {
-
             new PostRequest(this, url, postData, true, new OnPostServiceCallListener() {
                 @Override
                 public void onSucceedToPostCall(JSONObject response) {
@@ -166,7 +162,6 @@ public class LoginActivity extends BaseAppCompatActivity {
 
                 @Override
                 public void onFailedToPostCall(int statusCode, String msg) {
-
                     Globals.showToast(LoginActivity.this, msg);
                 }
             }).execute();

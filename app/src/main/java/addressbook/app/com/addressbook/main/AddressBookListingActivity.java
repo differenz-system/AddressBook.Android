@@ -1,8 +1,14 @@
 package addressbook.app.com.addressbook.main;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -88,16 +94,28 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
 
     private void saveAddressBook() {
         Intent i_edit_remove_address_book = new Intent(getContext(), EditRemoveAddressBookActivity.class);
-        startActivityForResult(i_edit_remove_address_book, ADD_EDIT_ADDRESS_REQ_CODE);
+        someActivityResultLauncher.launch(i_edit_remove_address_book);
     }
 
     private void editAddressBook(int pos) {
         Intent i_edit_remove_address_book = new Intent(getContext(), EditRemoveAddressBookActivity.class);
         i_edit_remove_address_book.putExtra(Constant.Key_editAddressBook, (Serializable) addressbookList.get(pos));
-        startActivityForResult(i_edit_remove_address_book, ADD_EDIT_ADDRESS_REQ_CODE);
-
+        someActivityResultLauncher.launch(i_edit_remove_address_book);
     }
 
+
+    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        setUpList();
+                    }
+                }
+            });
     private Context getContext() {
         return AddressBookListingActivity.this;
     }
@@ -106,14 +124,11 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
     public void logoutClick() {
         globals.setUserDetails(null);
         Globals.logoutProcess(getContext());
-
     }
 
     private void setUpList() {
-
         AddressBookDao addressBookDao = daoSession.getAddressBookDao();
         addressbookList = (ArrayList<AddressBook>) addressBookDao.loadAll();
-
         setAdapter();
     }
 

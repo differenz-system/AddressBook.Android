@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Addressbook.Android-Git.iml" filepath="$PROJECT_DIR$/.idea/modules/Addressbook.Android-Git.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Addressbook.Android-Git.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Addressbook.Android-Git.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AddressBook.Android.iml" filepath="$PROJECT_DIR$/.idea/modules/AddressBook.Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AddressBook.Android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AddressBook.Android.app.iml" />
     </modules>
   </component>
 </project>

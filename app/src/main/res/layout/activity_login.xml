@@ -26,86 +26,86 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingStart="@dimen/dim_45"
-                android:paddingEnd="@dimen/dim_45">
+                android:paddingStart="@dimen/_43sdp"
+                android:paddingEnd="@dimen/_43sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/lbl_email"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_12"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rounder_corner"
                     android:ellipsize="end"
                     android:hint="@string/hint_email"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:padding="@dimen/dim_12"
+                    android:padding="@dimen/_10sdp"
                     android:textColor="@android:color/black"
                     android:textColorHint="@color/Gray70"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_12"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/lbl_password"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_12"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rounder_corner"
                     android:ellipsize="end"
                     android:hint="@string/hint_password"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:padding="@dimen/dim_12"
+                    android:padding="@dimen/_10sdp"
                     android:textColor="@android:color/black"
                     android:textColorHint="@color/Gray70"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dim_45"
-                    android:layout_marginTop="@dimen/dim_45"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_43sdp"
                     android:background="@drawable/rounded_corner_button"
                     android:gravity="center"
                     android:text="@string/action_login"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_14" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_45"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:gravity="center"
                     android:text="@string/lbl_or"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login_fb"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dim_45"
-                    android:layout_marginTop="@dimen/dim_45"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_43sdp"
                     android:background="@drawable/rounded_corner_button"
                     android:gravity="center"
                     android:text="@string/action_login_fb"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_14" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
         </ScrollView>

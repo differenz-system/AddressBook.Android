@@ -20,7 +20,6 @@ public class SplashActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         globals = (Globals) getApplicationContext();
-
     }
 
     @Override
@@ -30,9 +29,7 @@ public class SplashActivity extends BaseAppCompatActivity {
     }
 
     public void performOperation() {
-
         startHandler();
-
     }
 
     private void startHandler() {
@@ -40,16 +37,10 @@ public class SplashActivity extends BaseAppCompatActivity {
         handler.postDelayed(runnable, Constant.AB_SPLASH_TIME);//call runnable
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            openNavigationActivity();
-        }
-    };
+    Runnable runnable = () -> openNavigationActivity();
 
 
     public void openNavigationActivity() {
-
         if (globals.getUserDetails() == null) {
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
@@ -69,6 +60,4 @@ public class SplashActivity extends BaseAppCompatActivity {
             handler.removeCallbacks(runnable);
         }
     }
-
-
 }

@@ -117,7 +117,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
 
     @OnClick(R.id.btn_save_update)
     public void saveUpdateClick() {
-
         if (isUpdate) {
             updateAddressBook();
         } else {
@@ -139,9 +138,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
         return EditRemoveAddressBookActivity.this;
     }
 
-    private Activity getContextActivity() {
-        return EditRemoveAddressBookActivity.this;
-    }
 
     private void insertAddressBook() {
 

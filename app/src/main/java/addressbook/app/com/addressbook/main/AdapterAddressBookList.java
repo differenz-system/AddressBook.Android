@@ -23,14 +23,14 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
 
     private ArrayList<AddressBook> mValues;
     private AdapterView.OnItemClickListener onItemClickListener;
-    private Context context;
+    private final Context context;
 
     public AdapterAddressBookList(Context context) {
         this.context = context;
     }
 
-    public void doRefresh(ArrayList<AddressBook> addressbookList) {
-        this.mValues = addressbookList;
+    public void doRefresh(ArrayList<AddressBook> addressBookList) {
+        this.mValues = addressBookList;
         notifyDataSetChanged();
     }
 
@@ -41,7 +41,7 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private AdapterAddressBookList adapterAddressBookList;
+        private final AdapterAddressBookList adapterAddressBookList;
 
         @BindView(R.id.tv_name)
         AppCompatTextView tv_name;
@@ -60,7 +60,6 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
         }
 
         void setDataToView(AddressBook addressBookItemModel, ViewHolder viewHolder) {
-
             viewHolder.tv_name.setText(addressBookItemModel.getName());
             viewHolder.tv_email.setText(addressBookItemModel.getEmail());
             viewHolder.tv_contact_number.setText(addressBookItemModel.getContact_number());

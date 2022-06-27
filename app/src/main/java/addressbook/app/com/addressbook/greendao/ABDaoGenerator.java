@@ -31,13 +31,13 @@ public class ABDaoGenerator {
 
     // This is use to describe the colums of your table
     private static Entity addAddressBookEntities(final Schema schema) {
-        Entity addressbook = schema.addEntity("AddressBook");
-        addressbook.addIdProperty().primaryKey().autoincrement();
-        addressbook.addStringProperty("name");
-        addressbook.addStringProperty("email");
-        addressbook.addStringProperty("contact_number");
-        addressbook.addBooleanProperty("isactive");
-        return addressbook;
+        Entity addressBook = schema.addEntity("AddressBook");
+        addressBook.addIdProperty().primaryKey().autoincrement();
+        addressBook.addStringProperty("name");
+        addressBook.addStringProperty("email");
+        addressBook.addStringProperty("contact_number");
+        addressBook.addBooleanProperty("isactive");
+        return addressBook;
     }
 
 }

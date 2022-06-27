@@ -42,13 +42,10 @@ public class ConnectionDetector {
             builder.setMessage(pMsg);
             builder.setCancelable(true);
             builder.setPositiveButton(context.getString(R.string.msg_goto_settings),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
-                            context.startActivity(intent);
-                        }
+                    (dialog, which) -> {
+                        dialog.dismiss();
+                        Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+                        context.startActivity(intent);
                     });
             AlertDialog alert = builder.create();
             alert.show();
@@ -56,6 +53,4 @@ public class ConnectionDetector {
             e.printStackTrace();
         }
     }
-
-
 }

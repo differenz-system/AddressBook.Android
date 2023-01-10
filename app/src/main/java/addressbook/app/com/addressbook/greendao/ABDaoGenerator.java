@@ -1,15 +1,12 @@
 package addressbook.app.com.addressbook.greendao;
 
-
 import org.greenrobot.greendao.generator.DaoGenerator;
 import org.greenrobot.greendao.generator.Entity;
 import org.greenrobot.greendao.generator.Schema;
 
-
 /**
  * Created by mac on 10/5/17.
  */
-
 public class ABDaoGenerator {
 
     public static void main(String[] args) {

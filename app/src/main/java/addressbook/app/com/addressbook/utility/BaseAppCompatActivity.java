@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * Created by mac on 9/20/17.
  */
-
 public class BaseAppCompatActivity extends AppCompatActivity {
 
     @Override

@@ -1,5 +1,6 @@
 package addressbook.app.com.addressbook.apis;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -15,7 +16,6 @@ import org.json.JSONObject;
 
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.utility.Constant;
-import cc.cloudist.acplibrary.ACProgressFlower;
 import cz.msebera.android.httpclient.Header;
 
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
@@ -27,7 +27,8 @@ public class PostWithRequestParam {
     private Context context;
     private String url;
     private boolean isLoaderRequired;
-    private ACProgressFlower dialog = null;
+    private ProgressDialog dialog;
+    //private ACProgressFlower dialog = null;
     private ProgressBar pb = null;
 
     public interface OnPostWithReqParamServiceCallListener {
@@ -44,7 +45,6 @@ public class PostWithRequestParam {
         this.isLoaderRequired = isLoaderRequired;
         this.url = url;
     }
-
 
     public void execute() {
 
@@ -73,8 +73,7 @@ public class PostWithRequestParam {
             @Override
             public void onFinish() {
                 super.onFinish();
-                if (dialog != null && dialog.isShowing())
-                    dialog.dismiss();
+                if (dialog != null && dialog.isShowing()) dialog.dismiss();
                 else {
                     if (pb != null) {
                         pb.setVisibility(View.GONE);
@@ -85,8 +84,7 @@ public class PostWithRequestParam {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Logger.json(response.toString());
-                if (listener != null)
-                    listener.onSucceedToPostCall(response);
+                if (listener != null) listener.onSucceedToPostCall(response);
             }
 
             @Override
@@ -112,7 +110,6 @@ public class PostWithRequestParam {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
 
             @Override

@@ -1,5 +1,6 @@
 package addressbook.app.com.addressbook.apis;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -14,7 +15,6 @@ import org.json.JSONObject;
 
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.utility.Constant;
-import cc.cloudist.acplibrary.ACProgressFlower;
 import cz.msebera.android.httpclient.Header;
 
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
@@ -27,7 +27,8 @@ public class PostRequest {
     private Context context;
     private String url;
     private boolean isLoaderRequired, isDialog = true;
-    private ACProgressFlower dialog = null;
+    private ProgressDialog dialog;
+    //private ACProgressFlower dialog = null;
     private ProgressBar pb = null;
 
     public interface OnPostServiceCallListener {
@@ -39,7 +40,6 @@ public class PostRequest {
     public interface OnNoInternetListener {
         void onNoInternet(String msg);
     }
-
 
     public PostRequest(Context context, String url, JSONObject postData, boolean isLoaderRequired, OnPostServiceCallListener listener) {
         this.listener = listener;

@@ -1,5 +1,6 @@
 package addressbook.app.com.addressbook.apis;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -7,13 +8,11 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import cc.cloudist.acplibrary.ACProgressFlower;
 import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by mac on 6/8/17.
  */
-
 public class GetCall {
 
     private OnGetServiceCallListener listener;
@@ -21,7 +20,8 @@ public class GetCall {
     private Context context;
     private String url;
     private boolean isLoaderRequired;
-    ACProgressFlower dialog;
+    ProgressDialog dialog;
+    //ACProgressFlower dialog;
 
     public interface OnGetServiceCallListener {
         void onSucceedToGetCall(JSONObject response);
@@ -59,8 +59,7 @@ public class GetCall {
             @Override
             public void onFinish() {
                 super.onFinish();
-                if (dialog != null && dialog.isShowing())
-                    dialog.dismiss();
+                if (dialog != null && dialog.isShowing()) dialog.dismiss();
             }
 
             @Override

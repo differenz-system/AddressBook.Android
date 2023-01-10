@@ -40,12 +40,9 @@ import addressbook.app.com.addressbook.utility.UtilsValidation;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cc.cloudist.acplibrary.ACProgressFlower;
-
 
 public class LoginActivity extends BaseAppCompatActivity {
 
-    private final ACProgressFlower dialog = null;
     Globals globals;
     @BindView(R.id.toolbar_title)
     AppCompatTextView toolbar_title;
@@ -115,7 +112,6 @@ public class LoginActivity extends BaseAppCompatActivity {
         });
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -124,7 +120,6 @@ public class LoginActivity extends BaseAppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private Context getContext() {

@@ -1,25 +1,23 @@
 package addressbook.app.com.addressbook.apis;
 
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.orhanobut.logger.Logger;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
-import cc.cloudist.acplibrary.ACProgressConstant;
-import cc.cloudist.acplibrary.ACProgressFlower;
+
 import cz.msebera.android.httpclient.entity.StringEntity;
 
-
 public class HttpRequestHandler {
+
     private Globals globals = (Globals) Globals.getInstance();
     private static final String HEADER_TYPE_JSON = "application/json";
 
@@ -69,7 +67,14 @@ public class HttpRequestHandler {
         client.cancelRequests(context, true);
     }
 
-    public ACProgressFlower getProgressBar(Context context) {
+    public ProgressDialog getProgressBar(Context context) {
+        final ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setMessage("Please wait...");
+        dialog.setCancelable(false);
+        return dialog;
+    }
+
+    /*public ACProgressFlower getProgressBar(Context context) {
         final ACProgressFlower dialog = new ACProgressFlower.Builder(context)
                 .direction(ACProgressConstant.DIRECT_CLOCKWISE)
                 .petalThickness(5)
@@ -88,7 +93,7 @@ public class HttpRequestHandler {
                 .fadeColor(Color.DKGRAY).build();
         dialog.setCancelable(false);
         return dialog;
-    }
+    }*/
 
     public JSONObject getLoginUserJson(String email, String password) {
         // we are using this JSON for demo purpose
@@ -102,6 +107,4 @@ public class HttpRequestHandler {
 
         return params;
     }
-
-
 }

@@ -10,8 +10,8 @@ import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
 import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
 
+public class LauncherActivity extends BaseAppCompatActivity {
 
-public class SplashActivity extends BaseAppCompatActivity {
     Handler handler;
     Globals globals;
 
@@ -39,18 +39,16 @@ public class SplashActivity extends BaseAppCompatActivity {
 
     Runnable runnable = () -> openNavigationActivity();
 
-
     public void openNavigationActivity() {
         if (globals.getUserDetails() == null) {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            Intent intent = new Intent(LauncherActivity.this, LoginActivity.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(SplashActivity.this, AddressBookListingActivity.class);
+            Intent intent = new Intent(LauncherActivity.this, AddressBookListingActivity.class);
             startActivity(intent);
         }
         finish();
     }
-
 
     @Override
     public void onBackPressed() {

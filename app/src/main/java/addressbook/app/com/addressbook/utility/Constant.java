@@ -3,7 +3,6 @@ package addressbook.app.com.addressbook.utility;
 /**
  * Created by mac on 10/4/17.
  */
-
 public class Constant {
     public static final int AB_SPLASH_TIME = 1500;
 

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".loginregistration.SplashActivity"
+            android:name=".loginregistration.LauncherActivity"
             android:launchMode="singleTop"
             android:exported="true"
             android:screenOrientation="portrait">

@@ -1,21 +1,25 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+    compileSdk 33
+
     defaultConfig {
         applicationId "com.addressbook.android"
-        minSdkVersion 23
-        targetSdkVersion 31
+        minSdk 23
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,28 +30,27 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.browser:browser:1.4.0'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.jakewharton:butterknife:10.2.3'
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.orhanobut:logger:2.2.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'org.greenrobot:greendao:3.2.2'
-    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    implementation 'org.greenrobot:greendao:3.3.0'
+    implementation 'org.greenrobot:greendao-generator:3.3.0'
     implementation 'com.github.GrenderG:Toasty:1.4.2'
-    implementation 'com.facebook.android:facebook-android-sdk:11.2.0'
-    implementation 'cc.cloudist.acplibrary:library:1.2.1'
-    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.facebook.android:facebook-android-sdk:15.2.0'
+    //implementation 'cc.cloudist.acplibrary:library:1.2.1'
+    implementation 'com.loopj.android:android-async-http:1.4.11'
     implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
-
     //Sdp - Ssp library
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
-    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
 }

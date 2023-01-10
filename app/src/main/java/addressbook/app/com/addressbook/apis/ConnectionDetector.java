@@ -13,7 +13,6 @@ import addressbook.app.com.addressbook.R;
 
 public class ConnectionDetector {
 
-
     public static boolean isConnectingToInternet(Context context) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

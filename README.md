@@ -1,7 +1,7 @@
 # AddressBook.Android
 
 ## Overview
-This repository contains **Address Book** application for Android that shows design & coding practices followed by **[Differenz System]([http://www.differenzsystem.com/](http://www.differenzsystem.com?tab=readme-ov-file&utm_source=github&utm_medium=AddressBook.Android))**.
+This repository contains **Address Book** application for Android that shows design & coding practices followed by **[Differenz System]((http://www.differenzsystem.com?tab=readme-ov-file&utm_source=github&utm_medium=AddressBook.Android))**.
 
 The app does the following:
 1. **Login:** User can login email/password. 

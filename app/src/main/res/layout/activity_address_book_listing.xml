@@ -9,7 +9,9 @@
     tools:context="addressbook.app.com.addressbook.main.AddressBookListingActivity">
 
 
-    <include layout="@layout/layout_tool_bar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_tool_bar" />
 
 
     <androidx.recyclerview.widget.RecyclerView

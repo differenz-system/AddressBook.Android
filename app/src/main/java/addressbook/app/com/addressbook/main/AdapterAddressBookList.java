@@ -1,8 +1,12 @@
 package addressbook.app.com.addressbook.main;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +15,11 @@ import android.widget.AdapterView;
 import java.util.ArrayList;
 
 import addressbook.app.com.addressbook.R;
-import addressbook.app.com.addressbook.greendao.db.AddressBook;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import addressbook.app.com.addressbook.databinding.ItemListAddressbookBinding;
+//import addressbook.app.com.addressbook.greendao.db.AddressBook;
+import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 
 /**
  * Created by mac on 10/4/17.
@@ -21,7 +27,7 @@ import butterknife.ButterKnife;
 
 public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressBookList.ViewHolder> {
 
-    private ArrayList<AddressBook> mValues;
+    private ArrayList<RoomAddressBook> mValues;
     private AdapterView.OnItemClickListener onItemClickListener;
     private final Context context;
 
@@ -29,40 +35,50 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
         this.context = context;
     }
 
-    public void doRefresh(ArrayList<AddressBook> addressBookList) {
+    public void doRefresh(ArrayList<RoomAddressBook> addressBookList) {
         this.mValues = addressBookList;
         notifyDataSetChanged();
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_addressbook, parent, false);
-        return new ViewHolder(view, this);
+        /*View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_addressbook, parent, false);
+        return new ViewHolder(view, this);*/
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        ItemListAddressbookBinding binding = ItemListAddressbookBinding.inflate(inflater, parent, false);
+        return new ViewHolder(binding, this);
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final AdapterAddressBookList adapterAddressBookList;
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        AdapterAddressBookList adapterAddressBookList;
+        ItemListAddressbookBinding binding;
 
-        @BindView(R.id.tv_name)
+        public ViewHolder(@NonNull ItemListAddressbookBinding binding, AdapterAddressBookList adapterAddressBookList) {
+            super(binding.getRoot());
+            this.binding = binding;
+            this.adapterAddressBookList = adapterAddressBookList;
+            itemView.setOnClickListener(this);
+        }
+
+        /*@BindView(R.id.tv_name)
         AppCompatTextView tv_name;
 
         @BindView(R.id.tv_email)
         AppCompatTextView tv_email;
 
         @BindView(R.id.tv_contact_number)
-        AppCompatTextView tv_contact_number;
+        AppCompatTextView tv_contact_number;*/
 
-        public ViewHolder(View itemView, AdapterAddressBookList adapterAddressBookList) {
+        /*public ViewHolder(View itemView, AdapterAddressBookList adapterAddressBookList) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
-            this.adapterAddressBookList = adapterAddressBookList;
-            itemView.setOnClickListener(this);
-        }
+            *//*ButterKnife.bind(this, itemView);*//*
+        }*/
 
-        void setDataToView(AddressBook addressBookItemModel, ViewHolder viewHolder) {
-            viewHolder.tv_name.setText(addressBookItemModel.getName());
-            viewHolder.tv_email.setText(addressBookItemModel.getEmail());
-            viewHolder.tv_contact_number.setText(addressBookItemModel.getContact_number());
+        void setDataToView(RoomAddressBook addressBookItemModel) {
+            binding.tvName.setText(addressBookItemModel.getName());
+            binding.tvEmail.setText(addressBookItemModel.getEmail());
+            binding.tvContactNumber.setText(addressBookItemModel.getContactNumber());
         }
 
         @Override
@@ -73,8 +89,8 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        AddressBook addressBookItemModel = mValues.get(position);
-        holder.setDataToView(addressBookItemModel, holder);
+        RoomAddressBook addressBookItemModel = mValues.get(position);
+        holder.setDataToView(addressBookItemModel);
     }
 
     @Override
@@ -87,6 +103,7 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
     }
 
     private void onItemHolderClick(ViewHolder holder) {
+        Log.e("Adapter","onclick");
         if (onItemClickListener != null)
             onItemClickListener.onItemClick(null, holder.itemView, holder.getAdapterPosition(), holder.getItemId());
     }

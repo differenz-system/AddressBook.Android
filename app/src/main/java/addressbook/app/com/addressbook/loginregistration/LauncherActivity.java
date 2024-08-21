@@ -37,7 +37,7 @@ public class LauncherActivity extends BaseAppCompatActivity {
         handler.postDelayed(runnable, Constant.AB_SPLASH_TIME);//call runnable
     }
 
-    Runnable runnable = () -> openNavigationActivity();
+    Runnable runnable = this::openNavigationActivity;
 
     public void openNavigationActivity() {
         if (globals.getUserDetails() == null) {

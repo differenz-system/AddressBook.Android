@@ -14,26 +14,34 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import addressbook.app.com.addressbook.R;
-import addressbook.app.com.addressbook.greendao.db.AddressBook;
-import addressbook.app.com.addressbook.greendao.db.AddressBookDao;
-import addressbook.app.com.addressbook.greendao.db.DaoSession;
+import addressbook.app.com.addressbook.databinding.ActivityAddressBookListingBinding;
+import addressbook.app.com.addressbook.databinding.ActivityLoginBinding;
+//import addressbook.app.com.addressbook.greendao.db.AddressBook;
+//import addressbook.app.com.addressbook.greendao.db.AddressBookDao;
+//import addressbook.app.com.addressbook.greendao.db.DaoSession;
+import addressbook.app.com.addressbook.greendao.db.AppDatabase;
+import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
 import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.Constant;
-import butterknife.BindView;
+/*import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import butterknife.OnClick;*/
 
 public class AddressBookListingActivity extends BaseAppCompatActivity implements AdapterView.OnItemClickListener {
 
-    @BindView(R.id.toolbar)
+    /*@BindView(R.id.toolbar)
     Toolbar toolbar;
 
     @BindView(R.id.toolbar_title)
@@ -49,32 +57,58 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
     RecyclerView rv_address_list;
 
     @BindView(R.id.tv_no_list)
-    AppCompatTextView tv_no_list;
+    AppCompatTextView tv_no_list;*/
 
-    private DaoSession daoSession;
+    //private DaoSession daoSession;
 
-    private ArrayList<AddressBook> addressbookList;
+    private ArrayList<RoomAddressBook> addressbookList;
     private AdapterAddressBookList adapterAddressBookList;
     Globals globals;
     public static int ADD_EDIT_ADDRESS_REQ_CODE = 1010;
+    private ActivityAddressBookListingBinding binding;
+    private AppDatabase addressBookDatabase;
+
+    private ExecutorService executorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address_book_listing);
-        ButterKnife.bind(this);
+        binding = ActivityAddressBookListingBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        /*setContentView(R.layout.activity_address_book_listing);
+        ButterKnife.bind(this);*/
+
+        executorService = Executors.newSingleThreadExecutor();
+
         init();
     }
 
     private void init() {
         globals = (Globals) getApplicationContext();
-        daoSession = Globals.getInstance().getDaoSession();
-        setSupportActionBar(toolbar);
-        toolbar_title.setText(getString(R.string.lbl_address_book));
-        toolbar_left.setVisibility(View.VISIBLE);
-        toolbar_right.setVisibility(View.VISIBLE);
-        toolbar_left.setText(getString(R.string.action_logout));
-        toolbar_right.setText(getString(R.string.action_add));
+        //daoSession = Globals.getInstance().getDaoSession();
+        addressBookDatabase = AppDatabase.getInstance(this);
+
+        setSupportActionBar(binding.toolbar.getRoot());
+        binding.toolbar.toolbarTitle.setText(getString(R.string.lbl_address_book));
+        binding.toolbar.toolbarLeft.setVisibility(View.VISIBLE);
+        binding.toolbar.toolbarRight.setVisibility(View.VISIBLE);
+        binding.toolbar.toolbarLeft.setText(getString(R.string.action_logout));
+        binding.toolbar.toolbarRight.setText(getString(R.string.action_add));
+
+        binding.toolbar.toolbarRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCLick();
+            }
+        });
+
+        binding.toolbar.toolbarLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutClick();
+            }
+        });
 
         setUpList();
     }
@@ -87,7 +121,7 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
         }
     }
 
-    @OnClick(R.id.toolbar_right)
+    //@OnClick(R.id.toolbar_right)
     public void addCLick() {
         saveAddressBook();
     }
@@ -99,7 +133,7 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
 
     private void editAddressBook(int pos) {
         Intent i_edit_remove_address_book = new Intent(getContext(), EditRemoveAddressBookActivity.class);
-        i_edit_remove_address_book.putExtra(Constant.Key_editAddressBook, (Serializable) addressbookList.get(pos));
+        i_edit_remove_address_book.putExtra(Constant.Key_editAddressBook, addressbookList.get(pos));
         someActivityResultLauncher.launch(i_edit_remove_address_book);
     }
 
@@ -116,20 +150,38 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
                     }
                 }
             });
+
     private Context getContext() {
         return AddressBookListingActivity.this;
     }
 
-    @OnClick(R.id.toolbar_left)
+    //@OnClick(R.id.toolbar_left)
     public void logoutClick() {
         globals.setUserDetails(null);
         Globals.logoutProcess(getContext());
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        executorService.shutdown();
+    }
+
     private void setUpList() {
-        AddressBookDao addressBookDao = daoSession.getAddressBookDao();
+        /*AddressBookDao addressBookDao = daoSession.getAddressBookDao();
         addressbookList = (ArrayList<AddressBook>) addressBookDao.loadAll();
-        setAdapter();
+        setAdapter();*/
+        /*List<RoomAddressBook> dbAddressBookList = addressBookDatabase.addressBookDao().getAllAddressBooks();
+        addressbookList = new ArrayList<>(dbAddressBookList);  // Convert List to ArrayList if necessary
+        setAdapter();*/
+        executorService.execute(() -> {
+            List<RoomAddressBook> dbAddressBookList = addressBookDatabase.addressBookDao().getAllAddressBooks();
+            runOnUiThread(() -> {
+                addressbookList = new ArrayList<>(dbAddressBookList);  // Convert List to ArrayList if necessary
+                Log.e("AddressBookListingActivity"," -- " + addressbookList);
+                setAdapter();
+            });
+        });
     }
 
     public void setAdapter() {
@@ -140,31 +192,32 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
             }
             adapterAddressBookList.doRefresh(addressbookList);
 
-            if (rv_address_list.getAdapter() == null) {
-                rv_address_list.setHasFixedSize(false);
-                rv_address_list.setLayoutManager(new LinearLayoutManager(getContext()));
-                rv_address_list.setAdapter(adapterAddressBookList);
-                rv_address_list.setNestedScrollingEnabled(false);
-                rv_address_list.setFocusable(false);
+            if (binding.rvAddressList.getAdapter() == null) {
+                binding.rvAddressList.setHasFixedSize(false);
+                binding.rvAddressList.setLayoutManager(new LinearLayoutManager(getContext()));
+                binding.rvAddressList.setAdapter(adapterAddressBookList);
+                binding.rvAddressList.setNestedScrollingEnabled(false);
+                binding.rvAddressList.setFocusable(false);
             }
         }
         handleEmptyList();
     }
 
     public void handleEmptyList() {
-        if (tv_no_list != null) {
+        if (binding.tvNoList != null) {
             if (addressbookList == null || addressbookList.isEmpty()) {
-                tv_no_list.setVisibility(View.VISIBLE);
-                rv_address_list.setVisibility(View.GONE);
+                binding.tvNoList.setVisibility(View.VISIBLE);
+                binding.rvAddressList.setVisibility(View.GONE);
             } else {
-                tv_no_list.setVisibility(View.GONE);
-                rv_address_list.setVisibility(View.VISIBLE);
+                binding.tvNoList.setVisibility(View.GONE);
+                binding.rvAddressList.setVisibility(View.VISIBLE);
             }
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+        Log.e("AddressBookListingActivity"," -- onItemClick ID = " + l);
         editAddressBook(pos);
     }
 }

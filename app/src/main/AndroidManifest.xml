@@ -15,9 +15,9 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".loginregistration.LauncherActivity"
-            android:launchMode="singleTop"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:launchMode="singleTop"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,20 +25,20 @@
         </activity>
         <activity
             android:name=".loginregistration.LoginActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
 
         </activity>
         <activity
             android:name=".main.AddressBookListingActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".main.EditRemoveAddressBookActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <meta-data

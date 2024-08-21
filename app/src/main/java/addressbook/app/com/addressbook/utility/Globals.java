@@ -22,13 +22,14 @@ import com.google.gson.reflect.TypeToken;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import org.greenrobot.greendao.database.Database;
+//import org.greenrobot.greendao.database.Database;
 
 import java.lang.reflect.Type;
 
 import addressbook.app.com.addressbook.R;
-import addressbook.app.com.addressbook.greendao.db.DaoMaster;
-import addressbook.app.com.addressbook.greendao.db.DaoSession;
+//import addressbook.app.com.addressbook.greendao.db.DaoMaster;
+//import addressbook.app.com.addressbook.greendao.db.DaoSession;
+import addressbook.app.com.addressbook.greendao.db.AppDatabase;
 import addressbook.app.com.addressbook.loginregistration.LoginActivity;
 import addressbook.app.com.addressbook.model.UserLoginDetail;
 import es.dmoral.toasty.Toasty;
@@ -42,7 +43,8 @@ public class Globals extends MultiDexApplication {
     SharedPreferences.Editor editor;
     public static String TAG = "Globals";
     private static Globals instance;
-    private DaoSession daoSession;
+    //private DaoSession daoSession;
+    private AppDatabase appDatabase;
 
 
     @Override
@@ -50,9 +52,10 @@ public class Globals extends MultiDexApplication {
         super.onCreate();
         MultiDex.install(this);
         instance = this;
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "users-db"); //The users-db here is the name of our database.
+        appDatabase = AppDatabase.getInstance(this);
+        /*DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "users-db"); //The users-db here is the name of our database.
         Database db = helper.getWritableDb();
-        daoSession = new DaoMaster(db).newSession();
+        daoSession = new DaoMaster(db).newSession();*/
         Logger.addLogAdapter(new AndroidLogAdapter() {
             @Override
             public boolean isLoggable(int priority, String tag) {
@@ -74,8 +77,12 @@ public class Globals extends MultiDexApplication {
         }
     }
 
-    public DaoSession getDaoSession() {
+    /*public DaoSession getDaoSession() {
         return daoSession;
+    }*/
+
+    public AppDatabase getAppDatabase() {
+        return appDatabase;
     }
 
     private static Toast toast;

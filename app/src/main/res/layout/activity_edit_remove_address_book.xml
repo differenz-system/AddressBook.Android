@@ -9,7 +9,9 @@
     android:orientation="vertical"
     tools:context="addressbook.app.com.addressbook.main.EditRemoveAddressBookActivity">
 
-    <include layout="@layout/layout_tool_bar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_tool_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,10 +26,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/_8sdp"
-            android:paddingEnd="@dimen/_43sdp"
             android:paddingStart="@dimen/_43sdp"
-            android:paddingTop="@dimen/_8sdp">
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_43sdp"
+            android:paddingBottom="@dimen/_8sdp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"

@@ -1,22 +1,18 @@
 package addressbook.app.com.addressbook.main;
 
 import android.content.Context;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
-import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.databinding.ItemListAddressbookBinding;
-//import addressbook.app.com.addressbook.greendao.db.AddressBook;
 import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
 /*import butterknife.BindView;
 import butterknife.ButterKnife;*/

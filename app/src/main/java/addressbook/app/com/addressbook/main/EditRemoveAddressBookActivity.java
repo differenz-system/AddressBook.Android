@@ -1,35 +1,19 @@
 package addressbook.app.com.addressbook.main;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
-import androidx.room.Room;
-
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.databinding.ActivityEditRemoveAddressBookBinding;
-import addressbook.app.com.addressbook.databinding.ActivityLoginBinding;
-//import addressbook.app.com.addressbook.greendao.db.AddressBook;
 import addressbook.app.com.addressbook.greendao.db.AppDatabase;
-//import addressbook.app.com.addressbook.greendao.db.DaoSession;
 import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
 import addressbook.app.com.addressbook.greendao.db.RoomAddressBookDao;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
-import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.Constant;
+import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.Globals.OnDialogClickListener;
 import addressbook.app.com.addressbook.utility.UtilsValidation;
 /*import butterknife.BindView;

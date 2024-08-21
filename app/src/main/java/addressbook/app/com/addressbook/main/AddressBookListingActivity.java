@@ -4,21 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -26,15 +21,11 @@ import java.util.concurrent.Executors;
 
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.databinding.ActivityAddressBookListingBinding;
-import addressbook.app.com.addressbook.databinding.ActivityLoginBinding;
-//import addressbook.app.com.addressbook.greendao.db.AddressBook;
-//import addressbook.app.com.addressbook.greendao.db.AddressBookDao;
-//import addressbook.app.com.addressbook.greendao.db.DaoSession;
 import addressbook.app.com.addressbook.greendao.db.AppDatabase;
 import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
-import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.Constant;
+import addressbook.app.com.addressbook.utility.Globals;
 /*import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;*/

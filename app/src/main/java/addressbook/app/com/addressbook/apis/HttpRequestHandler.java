@@ -2,18 +2,14 @@ package addressbook.app.com.addressbook.apis;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.orhanobut.logger.Logger;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
-
 import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class HttpRequestHandler {
@@ -73,27 +69,6 @@ public class HttpRequestHandler {
         dialog.setCancelable(false);
         return dialog;
     }
-
-    /*public ACProgressFlower getProgressBar(Context context) {
-        final ACProgressFlower dialog = new ACProgressFlower.Builder(context)
-                .direction(ACProgressConstant.DIRECT_CLOCKWISE)
-                .petalThickness(5)
-                .themeColor(Color.WHITE)
-                .fadeColor(Color.DKGRAY).build();
-        dialog.setCancelable(false);
-        return dialog;
-    }
-
-    public ACProgressFlower getProgressBarWithText(Context context, String msg) {
-        final ACProgressFlower dialog = new ACProgressFlower.Builder(context)
-                .direction(ACProgressConstant.DIRECT_CLOCKWISE)
-                .petalThickness(5)
-                .themeColor(Color.WHITE)
-                .text(msg)
-                .fadeColor(Color.DKGRAY).build();
-        dialog.setCancelable(false);
-        return dialog;
-    }*/
 
     public JSONObject getLoginUserJson(String email, String password) {
         // we are using this JSON for demo purpose

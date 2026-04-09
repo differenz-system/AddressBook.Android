@@ -7,19 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.gson.Gson;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Arrays;
-
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.apis.HttpRequestHandler;
 import addressbook.app.com.addressbook.apis.PostRequest;
@@ -32,28 +28,10 @@ import addressbook.app.com.addressbook.utility.ConnectionDetector;
 import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.UtilsValidation;
-/*import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;*/
 
 public class LoginActivity extends BaseAppCompatActivity {
 
     Globals globals;
-    /*@BindView(R.id.toolbar_title)
-    AppCompatTextView toolbar_title;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.btn_login)
-    AppCompatButton btn_login;
-    @BindView(R.id.btn_login_fb)
-    AppCompatButton btn_login_fb;
-    @BindView(R.id.et_email)
-    AppCompatEditText et_email;
-    @BindView(R.id.et_password)
-    AppCompatEditText et_password;
-    @BindView(R.id.pg)
-    ProgressBar pg;*/
-    //Facebook
     private CallbackManager callbackmanager;
     private ActivityLoginBinding binding;
 
@@ -63,8 +41,6 @@ public class LoginActivity extends BaseAppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        //setContentView(R.layout.activity_login);
-        //ButterKnife.bind(this);
 
         init();
 
@@ -89,16 +65,13 @@ public class LoginActivity extends BaseAppCompatActivity {
         binding.toolbar.toolbarTitle.setText(getString(R.string.title_login));
     }
 
-    //@OnClick(R.id.btn_login)
     public void loginClick() {
         Globals.hideKeyboard(getContextActivity());
         if (isValid()) {
-            if (ConnectionDetector.internetCheck(getContext(), true))
-                doRequestForLoginUser();
+            if (ConnectionDetector.internetCheck(getContext(), true)) doRequestForLoginUser();
         }
     }
 
-    //@OnClick(R.id.btn_login_fb)
     public void loginFBClick() {
         Globals.hideKeyboard(getContextActivity());
         FBLogin();

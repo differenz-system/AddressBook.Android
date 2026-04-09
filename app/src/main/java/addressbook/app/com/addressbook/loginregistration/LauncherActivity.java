@@ -3,7 +3,6 @@ package addressbook.app.com.addressbook.loginregistration;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.main.AddressBookListingActivity;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;

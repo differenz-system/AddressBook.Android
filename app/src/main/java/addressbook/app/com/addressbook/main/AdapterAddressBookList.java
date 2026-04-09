@@ -6,16 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 import addressbook.app.com.addressbook.databinding.ItemListAddressbookBinding;
 import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
-/*import butterknife.BindView;
-import butterknife.ButterKnife;*/
 
 /**
  * Created by mac on 10/4/17.
@@ -39,8 +34,6 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        /*View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_addressbook, parent, false);
-        return new ViewHolder(view, this);*/
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemListAddressbookBinding binding = ItemListAddressbookBinding.inflate(inflater, parent, false);
         return new ViewHolder(binding, this);
@@ -56,20 +49,6 @@ public class AdapterAddressBookList extends RecyclerView.Adapter<AdapterAddressB
             this.adapterAddressBookList = adapterAddressBookList;
             itemView.setOnClickListener(this);
         }
-
-        /*@BindView(R.id.tv_name)
-        AppCompatTextView tv_name;
-
-        @BindView(R.id.tv_email)
-        AppCompatTextView tv_email;
-
-        @BindView(R.id.tv_contact_number)
-        AppCompatTextView tv_contact_number;*/
-
-        /*public ViewHolder(View itemView, AdapterAddressBookList adapterAddressBookList) {
-            super(itemView);
-            *//*ButterKnife.bind(this, itemView);*//*
-        }*/
 
         void setDataToView(RoomAddressBook addressBookItemModel) {
             binding.tvName.setText(addressBookItemModel.getName());

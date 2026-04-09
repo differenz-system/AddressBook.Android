@@ -19,7 +19,4 @@ public class UserLoginDetail implements Serializable {
         @SerializedName("Email")
         public String email;
     }
-
-
-
 }

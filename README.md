@@ -27,12 +27,12 @@ The app does the following:
     - Migrated the project from GreenDao to RoomDB for a more modern database management approach.
 9. **Target SDK & Compile SDK Upgrade**
     - Updated the target SDK and compile SDK from 33 to 34 for improved performance and new Android features.
-10 **Android Studio Version Upgrade**
-    - Upgraded the Android Studio version from Chipmunk | 2021.2.1 to Koala | 2024.1.1 for better development tools and environment.
+10. **Android Studio Version Upgrade**                                                                                                                       
+    - Upgraded the Android Studio version from Koala | 2024.1.1 to Otter 3 Feature Drop | 2025.2.3 for better development tools and environment.
 
 ## Pre-requisites
 - Android device or emulator running API 23 (6.0 - Marshmallow) or above
-- [Android Studio Koala | 2024.1.1](https://developer.android.com/studio/index.html)
+- [Android Studio Otter 3 Feature Drop | 2025.2.3](https://developer.android.com/studio/index.html)
 
 ## Getting Started
 1. [Install Android Studio](https://developer.android.com/studio/index.html)

@@ -7,18 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.databinding.ActivityAddressBookListingBinding;
 import addressbook.app.com.addressbook.greendao.db.AppDatabase;
@@ -26,31 +23,8 @@ import addressbook.app.com.addressbook.greendao.db.RoomAddressBook;
 import addressbook.app.com.addressbook.utility.BaseAppCompatActivity;
 import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
-/*import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;*/
 
 public class AddressBookListingActivity extends BaseAppCompatActivity implements AdapterView.OnItemClickListener {
-
-    /*@BindView(R.id.toolbar)
-    Toolbar toolbar;
-
-    @BindView(R.id.toolbar_title)
-    AppCompatTextView toolbar_title;
-
-    @BindView(R.id.toolbar_left)
-    AppCompatTextView toolbar_left;
-
-    @BindView(R.id.toolbar_right)
-    AppCompatTextView toolbar_right;
-
-    @BindView(R.id.rv_address_list)
-    RecyclerView rv_address_list;
-
-    @BindView(R.id.tv_no_list)
-    AppCompatTextView tv_no_list;*/
-
-    //private DaoSession daoSession;
 
     private ArrayList<RoomAddressBook> addressbookList;
     private AdapterAddressBookList adapterAddressBookList;
@@ -67,9 +41,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
         binding = ActivityAddressBookListingBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        /*setContentView(R.layout.activity_address_book_listing);
-        ButterKnife.bind(this);*/
-
         executorService = Executors.newSingleThreadExecutor();
 
         init();
@@ -77,7 +48,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
 
     private void init() {
         globals = (Globals) getApplicationContext();
-        //daoSession = Globals.getInstance().getDaoSession();
         addressBookDatabase = AppDatabase.getInstance(this);
 
         setSupportActionBar(binding.toolbar.getRoot());
@@ -112,7 +82,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
         }
     }
 
-    //@OnClick(R.id.toolbar_right)
     public void addCLick() {
         saveAddressBook();
     }
@@ -146,7 +115,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
         return AddressBookListingActivity.this;
     }
 
-    //@OnClick(R.id.toolbar_left)
     public void logoutClick() {
         globals.setUserDetails(null);
         Globals.logoutProcess(getContext());
@@ -159,12 +127,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
     }
 
     private void setUpList() {
-        /*AddressBookDao addressBookDao = daoSession.getAddressBookDao();
-        addressbookList = (ArrayList<AddressBook>) addressBookDao.loadAll();
-        setAdapter();*/
-        /*List<RoomAddressBook> dbAddressBookList = addressBookDatabase.addressBookDao().getAllAddressBooks();
-        addressbookList = new ArrayList<>(dbAddressBookList);  // Convert List to ArrayList if necessary
-        setAdapter();*/
         executorService.execute(() -> {
             List<RoomAddressBook> dbAddressBookList = addressBookDatabase.addressBookDao().getAllAddressBooks();
             runOnUiThread(() -> {
@@ -208,7 +170,6 @@ public class AddressBookListingActivity extends BaseAppCompatActivity implements
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-        Log.e("AddressBookListingActivity"," -- onItemClick ID = " + l);
         editAddressBook(pos);
     }
 }

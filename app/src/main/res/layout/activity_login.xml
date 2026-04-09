@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGrey"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_tool_bar"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/layout_tool_bar" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fillViewport="true"
-            android:fitsSystemWindows="true"
-            android:scrollbars="none">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
+                android:layout_gravity="center"
                 android:paddingStart="@dimen/_43sdp"
                 android:paddingEnd="@dimen/_43sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_lbl_email"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/lbl_email"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rounder_corner"
@@ -51,19 +63,26 @@
                     android:padding="@dimen/_10sdp"
                     android:textColor="@android:color/black"
                     android:textColorHint="@color/Gray70"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lbl_email" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_lbl_password"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/lbl_password"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_email" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_password"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rounder_corner"
@@ -74,11 +93,14 @@
                     android:padding="@dimen/_10sdp"
                     android:textColor="@android:color/black"
                     android:textColorHint="@color/Gray70"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lbl_password" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_43sdp"
                     android:background="@drawable/rounded_corner_button"
@@ -86,21 +108,28 @@
                     android:text="@string/action_login"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_password" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_or"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_40sdp"
                     android:gravity="center"
                     android:text="@string/lbl_or"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_10ssp"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_login_fb"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_43sdp"
                     android:background="@drawable/rounded_corner_button"
@@ -109,17 +138,25 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_12ssp"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_or" />
 
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/pg"
         android:layout_width="@dimen/dim_65"
         android:layout_height="@dimen/dim_65"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

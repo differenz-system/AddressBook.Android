@@ -4,15 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
-
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.orhanobut.logger.Logger;
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.utility.Constant;
 import cz.msebera.android.httpclient.Header;
@@ -28,7 +24,6 @@ public class PostRequest {
     private String url;
     private boolean isLoaderRequired, isDialog = true;
     private ProgressDialog dialog;
-    //private ACProgressFlower dialog = null;
     private ProgressBar pb = null;
 
     public interface OnPostServiceCallListener {

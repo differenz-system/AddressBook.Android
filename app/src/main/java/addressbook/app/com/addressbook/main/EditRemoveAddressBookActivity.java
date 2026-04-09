@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-
 import addressbook.app.com.addressbook.R;
 import addressbook.app.com.addressbook.databinding.ActivityEditRemoveAddressBookBinding;
 import addressbook.app.com.addressbook.greendao.db.AppDatabase;
@@ -16,41 +15,8 @@ import addressbook.app.com.addressbook.utility.Constant;
 import addressbook.app.com.addressbook.utility.Globals;
 import addressbook.app.com.addressbook.utility.Globals.OnDialogClickListener;
 import addressbook.app.com.addressbook.utility.UtilsValidation;
-/*import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;*/
 
 public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
-
-    /*@BindView(R.id.toolbar)
-    Toolbar toolbar;
-
-    @BindView(R.id.toolbar_title)
-    AppCompatTextView toolbar_title;
-
-    @BindView(R.id.toolbar_left)
-    AppCompatTextView toolbar_left;
-
-    @BindView(R.id.toolbar_right)
-    AppCompatTextView toolbar_right;
-
-    @BindView(R.id.btn_save_update)
-    Button btn_save_update;
-
-    @BindView(R.id.btn_delete_cancel)
-    Button btn_delete_cancel;
-
-    @BindView(R.id.edt_name)
-    AppCompatEditText edt_name;
-
-    @BindView(R.id.edt_email)
-    AppCompatEditText edt_email;
-
-    @BindView(R.id.edt_contact_no)
-    AppCompatEditText edt_contact_no;
-
-    @BindView(R.id.switch_active)
-    SwitchCompat switch_active;*/
 
     Globals globals;
 
@@ -66,8 +32,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*setContentView(R.layout.activity_edit_remove_address_book);
-        ButterKnife.bind(this);*/
         binding = ActivityEditRemoveAddressBookBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
@@ -82,37 +46,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
     }
 
     private void init() {
-        /*globals = (Globals) getApplicationContext();
-        daoSession = Globals.getInstance().getDaoSession();
-        setSupportActionBar(binding.toolbar.getRoot());
-        binding.toolbar.toolbarTitle.setText(getString(R.string.lbl_detail));
-        binding.toolbar.toolbarLeft.setVisibility(View.VISIBLE);
-        binding.toolbar.toolbarRight.setVisibility(View.VISIBLE);
-        binding.toolbar.toolbarLeft.setText(getString(R.string.lbl_address_book));
-        binding.toolbar.toolbarRight.setText(getString(R.string.action_logout));
-
-        extra = getIntent().getExtras();
-        if (extra != null && extra.containsKey(Constant.Key_editAddressBook)) {
-            isUpdate = true;
-            mAddressBook = (AddressBook) extra.getSerializable(Constant.Key_editAddressBook);
-        }
-
-        // set the text in button based on adding or editing addressbook
-        if (isUpdate) {
-            // set the value from intent bundle
-            binding.edtName.setText(mAddressBook.getName());
-            binding.edtEmail.setText(mAddressBook.getEmail());
-            binding.edtContactNo.setText(mAddressBook.getContact_number());
-            binding.switchActive.setChecked(mAddressBook.getIsactive());
-
-            binding.btnSaveUpdate.setText(getString(R.string.action_update));
-            binding.btnDeleteCancel.setText(getString(R.string.action_delete));
-        } else {
-            binding.btnSaveUpdate.setText(getString(R.string.action_save));
-            binding.btnDeleteCancel.setText(getString(R.string.action_cancel));
-        }*/
-
-        //db = Globals.getInstance().getAppDatabase();
         Bundle extra = getIntent().getExtras();
         if (extra != null && extra.containsKey(Constant.Key_editAddressBook)) {
             mAddressBook = getIntent().getParcelableExtra(Constant.Key_editAddressBook);
@@ -150,18 +83,15 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
         });
     }
 
-    //@OnClick(R.id.toolbar_left)
     public void intentAddressBook() {
         onBackPressed();
     }
 
-    //@OnClick(R.id.toolbar_right)
     public void logoutClick() {
         globals.setUserDetails(null);
         Globals.logoutProcess(getContext());
     }
 
-    //@OnClick(R.id.btn_save_update)
     public void saveUpdateClick() {
         if (isUpdate) {
             updateAddressBook();
@@ -170,7 +100,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
         }
     }
 
-    //@OnClick(R.id.btn_delete_cancel)
     public void deleteCancelClick() {
 
         if (isUpdate) {
@@ -201,14 +130,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
                     finish();
                 });
             }).start();
-
-            /*db.addressBookDao().insert(addressBook);
-            setResult(RESULT_OK, new Intent());
-            finish();*/
-            //daoSession.insert(addressBook);
-            /*Intent resultIntent = new Intent();
-            setResult(RESULT_OK, resultIntent);
-            finish();*/
         }
     }
 
@@ -229,15 +150,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
                     finish();
                 });
             }).start();
-
-            /*db.addressBookDao().update(mAddressBook);
-            setResult(RESULT_OK, new Intent());
-            finish();*/
-
-            /*daoSession.update(addressBook);
-            Intent resultIntent = new Intent();
-            setResult(RESULT_OK, resultIntent);
-            finish();*/
         }
     }
 
@@ -245,11 +157,6 @@ public class EditRemoveAddressBookActivity extends BaseAppCompatActivity {
         Globals.showDialog(this, new OnDialogClickListener() {
             @Override
             public void OnDialogPositiveClick(int position) {
-                /*daoSession.delete(mAddressBook);
-                Intent resultIntent = new Intent();
-                setResult(RESULT_OK, resultIntent);
-                finish();*/
-
                 new Thread(() -> {
                     db.addressBookDao().delete(mAddressBook);
                     runOnUiThread(() -> {

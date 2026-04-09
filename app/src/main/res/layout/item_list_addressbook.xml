@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/lightGrey"
-    android:orientation="vertical">
+    android:background="@color/lightGrey">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_8sdp"
         android:background="@drawable/rounder_corner"
-        android:orientation="vertical"
-        android:padding="@dimen/_8sdp">
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_email"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_8ssp" />
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_contact_number"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_8ssp" />
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/_1sdp"
         android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_card" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
